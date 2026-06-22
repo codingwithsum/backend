@@ -1,10 +1,10 @@
-const asyscHandler = (requestHandler) => {
-     (req, res, next) => {
-        promise.resolve(requestHandler(req, res, next)).catch((err) => next(err))
+const asyncHandler = (requestHandler) => {
+    return (req, res, next) => {
+        Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err))
     }   
 }
 
-export { asyscHandler }
+export { asyncHandler }
 
 // const asyscHandler = (fn) => async (req, res, next) => {
 //     try {
